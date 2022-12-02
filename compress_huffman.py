@@ -213,27 +213,12 @@ def compresse(phrase, dicoHuf):
         phraseComp += dicoHuf[c]
     return phraseComp
 
-def decompresse(phrase_comp, dicoHuf):
-    pile_letter = []
-    txt_decomp = ""
-    for value in phrase_comp :
-        pile_letter.append(value)
-        temp = str(''.join(pile_letter))
-        if temp in dicoHuf.values() :
-            letter = [i for i in dicoHuf if dicoHuf[i]==temp]
-            letter = str(letter[0])
-            txt_decomp += letter
-            pile_letter.clear()
-    return txt_decomp
-
 filename = "data.txt"
 
 with open (filename, "r") as file_no_compress:
     phrase = file_no_compress.read()
 
 filename_compressed = os.path.splitext(filename)[0] + "_compressed.txt"
-
-# phrase = str(input("Saisissez votre phrase :\n"))
 
 tabl_occur = ordonne(occurrencesLettre(phrase))
 print("\n---------- Occurences des lettres ----------\n",tabl_occur)
@@ -246,11 +231,11 @@ encodage_huff = encode(abr_bin_huffman, code="", dicoC={}, dicoHuf={})
 phraseComp = compresse(phrase, encodage_huff)
 print("\n---------- Phrase compressée ----------\n",phraseComp)
 
+compression_package = phraseComp + "\n" + str(encodage_huff)
+print(compression_package)
+
 with open(filename_compressed, 'w') as file_compress:
-   file_compress.write(phraseComp)
+   file_compress.write(compression_package)
 
 taux = (1 - len(phraseComp)/(len(phrase)*8))*100
 print("\nTexte ASCII compressé à {:.2f} %".format(taux))
-
-phraseDecomp = decompresse(phraseComp, encodage_huff)
-print("\n---------- Phrase décompressée ----------\n",phraseDecomp)
