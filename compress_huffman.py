@@ -213,29 +213,3 @@ def compresse(phrase, dicoHuf):
         phraseComp += dicoHuf[c]
     return phraseComp
 
-filename = "data.txt"
-
-with open (filename, "r") as file_no_compress:
-    phrase = file_no_compress.read()
-
-filename_compressed = os.path.splitext(filename)[0] + "_compressed.txt"
-
-tabl_occur = ordonne(occurrencesLettre(phrase))
-print("\n---------- Occurences des lettres ----------\n",tabl_occur)
-
-abr_bin_huffman = huffman2(tabl_occur)
-print("\n---------- Arbre binaire correspondant ----------\n",abr_bin_huffman)
-
-encodage_huff = encode(abr_bin_huffman, code="", dicoC={}, dicoHuf={})
-
-phraseComp = compresse(phrase, encodage_huff)
-print("\n---------- Phrase compressée ----------\n",phraseComp)
-
-compression_package = phraseComp + "\n" + str(encodage_huff)
-print(compression_package)
-
-with open(filename_compressed, 'w') as file_compress:
-   file_compress.write(compression_package)
-
-taux = (1 - len(phraseComp)/(len(phrase)*8))*100
-print("\nTexte ASCII compressé à {:.2f} %".format(taux))
