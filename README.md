@@ -26,7 +26,7 @@ To obtain the binary code of each character, we go up the tree from the root to 
 # Project
 We will see together how to create a completely autonomous application (with graphical interface) to compress and decompress text files using Huffman coding.
 
-To accomplish this, we will use exclusively the Python programming language, and in particular the [tkinter module](https://docs.python.org/3/library/tkinter.html) which will be extremely useful for us to create a superb graphical interface!
+To accomplish this, we will use exclusively the Python programming language, and in particular the [Tkinter module](https://docs.python.org/3/library/tkinter.html) which will be extremely useful for us to create a superb graphical interface!
 
 # Compression/decompression procedure
 When you compress a file with Huffman encoding, then to decompress it, you must have in your possession what is called "**the encoding dictionary**" with a binary value corresponding to each character of the uncompressed file.
@@ -45,4 +45,4 @@ The solution to this problem is to package all lines of code and external module
 To achieve this, we will use an external module named “[PyInstaller](https://pyinstaller.org/en/stable/)”.
 
 Then just open a command prompt in the directory where our Python files are, and enter the following command:
-'Pyinstaller --icon=icon\icon_huffman_mellaza.ico --noconsole --onefile main.py'
+`Pyinstaller --icon=icon\icon_huffman_mellaza.ico --noconsole --onefile main.py`
