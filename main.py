@@ -1,5 +1,6 @@
 from compress_huffman import *      # On importe les fonctions de compression
 from decompress_huffman import *    # On importe les fonctions de décompression
+from get_path import *
 import tkinter                      # Module pour créer une interface graphique, et ses dépendances.
 from tkinter import *               
 from tkinter import messagebox
@@ -15,10 +16,10 @@ root.title("Compresseur/décompresseur de fichiers via la méthode Huffman")  # 
 root.geometry("1080x720")                                # Une résolution d'affichage, ici HD
 root.minsize(1080, 720)                                  # Je bloque cette résolution, pour éviter que l'utilisateur ne redimensionne n'importe comment.
 root.maxsize(1080, 720)
-root.iconbitmap(default='icon\icon_huffman_mellaza.ico') # Je défini un icon pour la fenêtre
+root.iconbitmap(default= resource_path('icon\icon_huffman_mellaza.ico')) # Je défini un icon pour la fenêtre
 
 # J'importe et j'affiche une image de fond pour mon accueil :
-bg = PhotoImage(file = "img\Background_IMAGE.png")
+bg = PhotoImage(file = resource_path("img\Background_IMAGE.png"))
 canvas_accueil = Canvas( root, width = 1080, height = 720)
 canvas_accueil.pack(fill = "both", expand = True)
 canvas_accueil.create_image( 0, 0, image = bg, anchor = "nw")

@@ -45,4 +45,4 @@ The solution to this problem is to package all lines of code and external module
 To achieve this, we will use an external module named “[PyInstaller](https://pyinstaller.org/en/stable/)”.
 
 Then just open a command prompt in the directory where our Python files are, and enter the following command:
-`Pyinstaller --icon=icon\icon_huffman_mellaza.ico --noconsole --onefile main.py`
+`Pyinstaller --icon=icon\icon_huffman_mellaza.ico --noconsole --onefile --add-data "img/Background_IMAGE.png;img" --add-data "icon\icon_huffman_mellaza.ico;icon" main.py`
